@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="(user, index) in users" :key="index">{{ user.title }}</div>
+        <div v-for="(item, index) in ask" :key="index">{{ item.title }}</div>
     </div>
 </template>
 
@@ -10,7 +10,7 @@ import { fetchAskList } from '../api/index.js'
 export default {
     data() {
         return {
-            users: []
+            ask: []
         }
     },
     created() {
@@ -18,7 +18,7 @@ export default {
         fetchAskList()
           .then(function(respose) {
             console.log(respose)
-            vm.users = respose.data
+            vm.ask = respose.data
           })
           .catch(function(error){
             console.log(error)
