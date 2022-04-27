@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 
 export default {
     data() {
@@ -14,9 +15,9 @@ export default {
     },
     created() {
         this.$store.dispatch('FETCH_JOBS');
-        
-
-
+    },
+    computed: {
+      ...mapGetters(['fetchedJobs'])
     }
     
 }
