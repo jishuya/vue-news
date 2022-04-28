@@ -5,6 +5,7 @@ const config = {
     baseurl: 'https://api.hnpwa.com/v0/'
 }
 
+
 // 2. API 함수들을 정리
 function fetchNewsList() {
     // return axios.get(config.baseurl + 'news/1.json');
@@ -18,6 +19,10 @@ function fetchJobsList() {
 function fetchAskList() {
     return axios.get(`${config.baseurl}ask/1.json`)
 }
+
+// function fetchJira(){
+
+// }
 
 
 export {
