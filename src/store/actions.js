@@ -37,7 +37,6 @@ export default {
   FETCH_USER({ commit }, name){
     fetchUserInfo(name)
       .then(({ data })=>{
-        console.log(data)
         commit('SET_USER', data)
       })
       .catch(error => {

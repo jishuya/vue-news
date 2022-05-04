@@ -19,6 +19,8 @@ function fetchAskList() {
 }
 
 function fetchUserInfo(username) {
+    console.log("fetchUserInfo:", username)
+    console.log("fetchUserInfo:", `${config.baseurl}user/${username}.json`)
     return axios.get(`${config.baseurl}user/${username}.json`)
 }
 
