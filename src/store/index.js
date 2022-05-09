@@ -23,6 +23,9 @@ export const store = new Vuex.Store({
       fetchedNews(state){
         return state.news
       },
+      fetchedItem(state){
+        return state.item
+      }
     },
     // mutations: mutations
     mutations,

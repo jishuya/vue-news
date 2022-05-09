@@ -1,19 +1,38 @@
 <template>
-    <div>
-        <h1>Item</h1>  
-        <p>title : {{ itemInfo.title}}</p> 
-        <p>user : {{ itemInfo.user}}</p>
-        <p>content : {{ itemInfo.content}}</p>
+  <div>
+    <section>
+      <!-- 유저정보 -->
+      <div class="user-container">
+        <div>
+          <i class="fa fa-user"></i>
+        </div>
+        <!-- 유저 상세정보 -->
+        <div class="user-description">
+          <router-link :to="`/user/${fetchedItem.user}`">
+            {{ fetchedItem.user }}
+          </router-link>
+          <div class="time">
+          {{ fetchedItem.time_ago }} 
+          </div>
+        </div>
+      </div>
+      <h2>{{ fetchedItem.title }}</h2>
+    </section>
+    <!-- 질문댓글 -->
+      <div v-html="fetchedItem.content"></div>
+    <section>
 
-    </div>
+    </section>
+      
+  </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     computed: {
-        itemInfo(){
-            return this.$store.state.item;
-        }
+        ...mapGetters(['fetchedItem'])
     },
     created(){
         const itemID = this.$route.params.id
@@ -22,6 +41,22 @@ export default {
 }
 </script>
 
-<style>
-    
+<style scoped>
+.user-container {
+ display: flex;
+ align-items: center;
+ padding: 0.5rem;
+}    
+
+.fa-user{
+  font-size: 2.5rem;
+}
+
+.user-description{
+  padding: 8px;
+}
+
+.time{
+  font-size: 0.7rem;
+}
 </style>
