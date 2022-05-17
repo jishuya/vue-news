@@ -23,4 +23,8 @@
     color: #35495e;
 }
 
+.header a {
+    color: white;
+}
+
 </style>
